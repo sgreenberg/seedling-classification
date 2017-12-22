@@ -4,21 +4,21 @@ My Capstone Project for Udacity's Machine Learning nanodegree will attempt to cl
 
 # Setup
 
-1. Download training images, test images. Folder structure should look like this: 
+1. Download training images, test images. Rename train to labeled and test to unlabeled to distinguish them from the train/test split extracted from the labeled dataset. Folder structure should look like this:
 
-```
-  seedling-classification
-    - data
-      - train
-        - Black-grass
-           - 0ace21089.png
-             ...
-        - Charlock
-        ...
-      - test
-        - 0a64e3e6c.png
-        ...
-```
+  ```
+    seedling-classification
+      - data
+        - labeled
+          - Black-grass
+             - 0ace21089.png
+               ...
+          - Charlock
+          ...
+        - unlabeled
+          - 0a64e3e6c.png
+          ...
+  ```
 
 2. To do. Bottleneck features!!!
 
@@ -32,7 +32,7 @@ My Capstone Project for Udacity's Machine Learning nanodegree will attempt to cl
   source ~/.bashrc
   ```
 
-4. Create (and activate) a new environment.
+5. Create (and activate) a new environment.
 
   - __Linux__ (to install with __GPU support__, change `requirements/linux.yml` to `requirements/linux-gpu.yml`): 
   ```
@@ -45,17 +45,33 @@ My Capstone Project for Udacity's Machine Learning nanodegree will attempt to cl
   source activate seedlings
   ```
 
+
+6. Create an [IPython kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) for the `seedlings` environment.
+  ```
+  python -m ipykernel install --user --name seedlings --display-name "seedlings"
+  ```
+
+7. Run this command to enable the tqdm_notebook extension
+  ```
+  jupyter nbextension enable --py widgetsnbextension
+  ```
   
-5. Switch [Keras backend](https://keras.io/backend/) to TensorFlow.
+8. Switch [Keras backend](https://keras.io/backend/) to TensorFlow.
   ```
   KERAS_BACKEND=tensorflow python -c "from keras import backend"
   ```
 
-6. Open the notebook.
-```
-jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser seedlings.ipynb
-```
+9. Open the notebook.
+  ```
+  jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser seedlings.ipynb
+  ```
 
 # Acknowledgements
 
 Setup Instructions taken from [Udacity's CNN dog-project](https://github.com/udacity/dog-project)
+
+# To Do
+
+Add pandas to requirements.yml.
+Better verbose output in loading test and train.
+Ensure I'm using f1 for evaluation metric.
