@@ -4,7 +4,12 @@ My Capstone Project for Udacity's Machine Learning nanodegree will attempt to cl
 
 # Setup
 
-1. Download training images, test images. Rename train to labeled and test to unlabeled to distinguish them from the train/test split extracted from the labeled dataset. Folder structure should look like this:
+1. Download training images, test images. Rename train to labeled and test to unlabeled to distinguish them from the train/test split extracted from the labeled dataset.
+
+2. Download Test Images from the Wild as described in [this post](https://www.kaggle.com/c/plant-seedlings-classification/discussion/44490).
+
+
+Folder structure should look like this:
 
   ```
     seedling-classification
@@ -17,10 +22,13 @@ My Capstone Project for Udacity's Machine Learning nanodegree will attempt to cl
           ...
         - unlabeled
           - 0a64e3e6c.png
+        - from_the_wild
+          - Charlock
+             - WP_20150506_10_15_19_Pro__highres_0.tiff
+               ...
+          - Cleavers
           ...
   ```
-
-2. To do. Bottleneck features!!!
 
 3. (Optional) __If you plan to use GPUs__, install the necessary NVIDIA software on your system. I followed [this guide](https://github.com/GoogleCloudPlatform/ml-on-gcp/blob/master/gce/survival-training/README-tf-estimator.md) to set up GPUs on a Google Compute Engine instance.
 
@@ -32,17 +40,15 @@ My Capstone Project for Udacity's Machine Learning nanodegree will attempt to cl
   source ~/.bashrc
   ```
 
-5. Create (and activate) a new environment.
+5. Create a new environment.
 
   - __Linux__ (to install with __GPU support__, change `requirements/linux.yml` to `requirements/linux-gpu.yml`): 
   ```
   conda env create -f requirements/linux.yml
-  source activate seedlings
   ```
   - __Mac__ (to install with __GPU support__, change `requirements/mac.yml` to `requirements/mac-gpu.yml`): 
   ```
   conda env create -f requirements/mac.yml
-  source activate seedlings
   ```
 
 
@@ -55,23 +61,22 @@ My Capstone Project for Udacity's Machine Learning nanodegree will attempt to cl
   ```
   jupyter nbextension enable --py widgetsnbextension
   ```
-  
-8. Switch [Keras backend](https://keras.io/backend/) to TensorFlow.
+
+8. Active the environment
+  ```
+  source activate seedlings
+  ```
+
+9. Switch [Keras backend](https://keras.io/backend/) to TensorFlow.
   ```
   KERAS_BACKEND=tensorflow python -c "from keras import backend"
   ```
 
-9. Open the notebook.
+10. Open the notebook.
   ```
   jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser seedlings.ipynb
   ```
 
 # Acknowledgements
 
-Setup Instructions taken from [Udacity's CNN dog-project](https://github.com/udacity/dog-project)
-
-# To Do
-
-Add pandas to requirements.yml.
-Better verbose output in loading test and train.
-Ensure I'm using f1 for evaluation metric.
+Setup Instructions were heavily influenced by [Udacity's CNN dog-project](https://github.com/udacity/dog-project)
