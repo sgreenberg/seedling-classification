@@ -22,6 +22,7 @@ Folder structure should look like this:
           ...
         - unlabeled
           - 0a64e3e6c.png
+            ...
         - from_the_wild
           - Charlock
              - WP_20150506_10_15_19_Pro__highres_0.tiff
